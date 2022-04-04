@@ -91,7 +91,7 @@ class ProjectUsers(models.Model):
 	position = models.CharField(max_length=255, verbose_name="Должность", blank=True, null=True)
 	school = models.CharField(max_length=255, verbose_name="Школа", blank=True, null=True)
 	region = models.ForeignKey(Region, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Регион")
-	telephone = models.CharField(max_length=11, verbose_name="Телефон", blank=True, null=True)
+	telephone = models.CharField(max_length=100, verbose_name="Телефон", blank=True, null=True)
 	email = models.EmailField(verbose_name='Почта', blank=True, null=True)
 	section_choose = models.CharField(max_length=255, verbose_name="Секция", choices=STATUS_SECTION, default=None, blank=True, null=True)
 	section= models.ForeignKey(Section, on_delete=models.CASCADE, related_name='projectusers', blank=True, null=True, verbose_name="Секция")
