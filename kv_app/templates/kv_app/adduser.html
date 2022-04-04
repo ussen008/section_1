@@ -1,0 +1,14 @@
+{% extends 'kv_app/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">	
+	<h2 class="text-center">Регистрация участников</h2>
+	<form action="" method="post">
+		{% csrf_token %}
+		{{form|crispy}}
+	<input type="submit" value="Добавить" class="btn btn-success mt-3" >
+	</form>
+</div>
+
+{% endblock %}
