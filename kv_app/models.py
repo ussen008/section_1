@@ -3,10 +3,6 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 # Create your models here.
 
-def only_int(value): 
-   if value.isdigit()==False:
-      raise ValidationError('ID contains characters')
-
 
 class Region(models.Model):
 	name = models.CharField(max_length=255, verbose_name="Регион")
@@ -59,8 +55,6 @@ class Section(models.Model):
 		return self.name
 
 
-
-
 class ProjectUsers(models.Model):
 	STATUS_SECTION = (
 		('1 Секция', '1 Секция'),
@@ -91,19 +85,10 @@ class ProjectUsers(models.Model):
 	position = models.CharField(max_length=255, verbose_name="Должность", blank=True, null=True)
 	school = models.CharField(max_length=255, verbose_name="Школа", blank=True, null=True)
 	region = models.ForeignKey(Region, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Регион", max_length=255)
-	telephone = models.CharField(max_length=225, verbose_name="Телефон", blank=True, null=True)
-	email = models.EmailField(verbose_name='Почта', blank=True, null=True, max_length=255)
 	section_choose = models.CharField(max_length=255, verbose_name="Секция", choices=STATUS_SECTION, default=None, blank=True, null=True)
 	section= models.ForeignKey(Section, on_delete=models.CASCADE, related_name='projectusers', blank=True, null=True, verbose_name="Секция", max_length=255)
 	auditorya_1 = models.CharField(max_length=225, verbose_name='Аудитория', blank=True, null=True)
 	
-	
-	
-	
-	
-	
-	
-
 
 	def __str__(self):
 		return self.full_name
