@@ -80,7 +80,7 @@ class ProjectUsers(models.Model):
 
 )
 
-	IIN = models.CharField(max_length=30, verbose_name="ИИН", blank=True, null=True)
+	IIN = models.CharField(max_length=225, verbose_name="ИИН", blank=True, null=True)
 	full_name = models.CharField(max_length=255, verbose_name="ФИО", blank=True, null=True)
 	position = models.CharField(max_length=255, verbose_name="Должность", blank=True, null=True)
 	school = models.CharField(max_length=255, verbose_name="Школа", blank=True, null=True)
